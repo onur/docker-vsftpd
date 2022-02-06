@@ -1,7 +1,7 @@
-FROM debian:stretch
+FROM debian:bullseye
 
-ARG FTP_UID=48
-ARG FTP_GID=48
+ARG FTP_UID=1000
+ARG FTP_GID=1000
 RUN set -x \
   && groupadd -g ${FTP_GID} ftp \
   && useradd --no-create-home --home-dir /srv -s /bin/false --uid ${FTP_UID} --gid ${FTP_GID} -c 'ftp daemon' ftp \
